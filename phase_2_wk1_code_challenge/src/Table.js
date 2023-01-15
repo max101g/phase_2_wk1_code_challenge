@@ -35,7 +35,7 @@ function Table ({arayOfAllTransactions}) {
         <div>
             <div className="container-fluid">
                     <form onSubmit={handleSubmit} className="d-flex" role="search">
-                        <input onChange={handleChange} className="form-control me-2" type="search" placeholder="Enter description to search" aria-label="Search"/>
+                        <input onChange={handleChange} className="form-control me-2" type="search" placeholder="Enter description to search... (use lowcase)" aria-label="Search"/>
                     </form>
                 </div>
             </div>
