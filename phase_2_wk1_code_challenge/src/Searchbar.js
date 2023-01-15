@@ -1,6 +1,8 @@
 import React from "react";
 
-function Searchbar () {
+function Searchbar ({searchData}) {
+
+    
     return (
          <div>
             <div className="container-fluid">

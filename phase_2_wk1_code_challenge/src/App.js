@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/><br/>
-      <Searchbar/> <br/>
+      {/* <Searchbar searchData = {transactions}/> <br/> */}
       <Form newTransaction = {updatedTransactions}/><br/>
       <Table arayOfAllTransactions = {transactions}/>
     </div>
