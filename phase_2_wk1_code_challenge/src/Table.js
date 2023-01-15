@@ -4,7 +4,7 @@ import Tablerow from "./Tablerow";
 function Table ({arayOfAllTransactions}) {
 
     const oneTransaction = arayOfAllTransactions.map ((transaction)=> {
-        return <tr>
+        return <tr key= {transaction.id}>
                     <td>{transaction.date}</td>
                     <td>{transaction.description}</td>
                     <td>{transaction.category}</td>

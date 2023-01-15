@@ -7,7 +7,7 @@ import Searchbar from './Searchbar';
 import Form from './Form';
 
 function App() {
-  const [transactions, setTransactions] = useState ([])
+  const [transactions, setTransactions] = useState([])
 
   useEffect (()=> {
     fetch ("http://localhost:3000/transactions")
@@ -15,12 +15,16 @@ function App() {
       .then ((data)=> setTransactions(data))
   }, [])
 
+  function updatedTransactions (newData) {
+    const updatedTransactionsArray = [...transactions, newData]
+    setTransactions (updatedTransactionsArray)
+  }
 
   return (
     <div className="App">
       <Navbar/><br/>
       <Searchbar/> <br/>
-      <Form/><br/>
+      <Form newTransaction = {updatedTransactions}/><br/>
       <Table arayOfAllTransactions = {transactions}/>
     </div>
   );

@@ -1,42 +1,50 @@
 import React, { useState } from "react";
 
-function Form () {
-    const [form, setForm] = useState ()
+function Form ({newTransaction}) {
+    const [formInputData, setFormInputData] = useState ({
+        date : "",
+        description : "",
+        category : "",
+        amount : "",
+    });
 
-    function handleDate (event) {
-        setForm (event.target.value)
-    }
-    function handleDescription (event) {
-        setForm (event.target.value)
-    }
-    function handleCategory (event) {
-        setForm (event.target.value)
-    }
-    function handleAmount (event) {
-        setForm (event.target.value)
+    function onHandleChange (e) {
+        const key = e.target.name
+          const value = e.target.value
+     setFormInputData ({...formInputData, [key]:value})
     }
 
-    function handleSubmit () {
-        
+    function handleSubmit (e) {
+        e.preventDefault ();
+
+        fetch ("http://localhost:3000/transactions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify (formInputData)
+        })
+            .then ((resp)=> resp.json ())
+            .then ((data)=> newTransaction(data))
     }
     
     return (
         <div>
-            <form onSubmit={()=> {}} className="row p-3">
+            <form onSubmit={handleSubmit} className="row p-3">
                 <div className="col-3">
-                    <input onChange={handleDate} name="date" className="form-control form-control-sm" type="date" placeholder="date" aria-label=".form-control-sm example"/>
+                    <input onChange={onHandleChange} name="date" className="form-control form-control-sm" type="date" placeholder="date" aria-label=".form-control-sm example"/>
                 </div>
                 <div className="col-3">
-                    <input onChange={handleDescription} name="description" className="form-control form-control-sm" type="text" placeholder="Description" aria-label=".form-control-sm example"/>
+                    <input onChange={onHandleChange} name="description" className="form-control form-control-sm" type="text" placeholder="Description" aria-label=".form-control-sm example"/>
                 </div>
                 <div className="col-3">
-                    <input onChange={handleCategory } name="category" className="form-control form-control-sm" type="text" placeholder="category" aria-label=".form-control-sm example"/>
+                    <input onChange={onHandleChange } name="category" className="form-control form-control-sm" type="text" placeholder="category" aria-label=".form-control-sm example" />
                 </div>
                 <div className="col-3">
-                    <input onChange={handleAmount} name="amount" className="form-control form-control-sm" type="number" placeholder="Amount" aria-label=".form-control-sm example"/>
+                    <input onChange={onHandleChange} name="amount" className="form-control form-control-sm" type="number" placeholder="Amount" aria-label=".form-control-sm example" />
                 </div>
             </form>
-            <button type="button" className="btn btn-secondary btn-lg" style={{}}>Add Transactions</button>
+            <button onClick={handleSubmit} type="button" className="btn btn-secondary btn-lg" style={{}}>Add Transactions</button>
         </div>
     )
 }
