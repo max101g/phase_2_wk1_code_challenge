@@ -14,6 +14,8 @@ function Form ({newTransaction}) {
      setFormInputData ({...formInputData, [key]:value})
     }
 
+    // create a function that alows us to send data to our db.json through POST method
+
     function handleSubmit (e) {
         e.preventDefault ();
 

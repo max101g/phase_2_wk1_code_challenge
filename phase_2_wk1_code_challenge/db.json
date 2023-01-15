@@ -97,34 +97,6 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
-    },
-    {
-      "date": "2023-01-20",
-      "description": "Burger",
-      "category": "Food",
-      "amount": "100",
-      "id": 15
-    },
-    {
-      "date": "",
-      "description": "",
-      "category": "",
-      "amount": "",
-      "id": 16
-    },
-    {
-      "date": "2023-01-20",
-      "description": "Rent",
-      "category": "Expense",
-      "amount": "-1000",
-      "id": 17
-    },
-    {
-      "date": "2023-01-14",
-      "description": "Wi-fi",
-      "category": "Expense",
-      "amount": "2000",
-      "id": 18
     }
   ]
 }

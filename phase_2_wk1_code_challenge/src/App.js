@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Navbar from './Navbar';
-import Table from './Table';
-import Searchbar from './Searchbar';
-import Form from './Form';
+import Navbar from './components/Navbar';
+import Table from './components/Table';
+import Form from './components/Form';
 
 function App() {
   const [transactions, setTransactions] = useState([])
+
+  // Fetch data from the the db.json using useEffect
 
   useEffect (()=> {
     fetch ("http://localhost:3000/transactions")
@@ -23,7 +24,6 @@ function App() {
   return (
     <div className="App">
       <Navbar/><br/>
-      {/* <Searchbar searchData = {transactions}/> <br/> */}
       <Form newTransaction = {updatedTransactions}/><br/>
       <Table arayOfAllTransactions = {transactions}/>
     </div>

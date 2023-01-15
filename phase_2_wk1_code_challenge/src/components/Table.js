@@ -1,5 +1,4 @@
 import React, { useState} from "react";
-import Tablerow from "./Tablerow";
 
 function Table ({arayOfAllTransactions}) {
     const [dataOfArray, setDataOfArray] = useState ("")
@@ -11,11 +10,7 @@ function Table ({arayOfAllTransactions}) {
         setDataOfArray (e.target.value)
     }
 
-    // const displayFiltered = arayOfAllTransactions.filter ((item)=> {
-    //     if (dataOfArray === item.description) return true;
-    // })
-
-    // console.log (displayFiltered)
+    // use filter and map methods to iterate through data from the db.json then use this data to in the table to display user information
 
     const oneTransaction = arayOfAllTransactions.filter ((item)=> {
         return dataOfArray.toLowerCase () === "" ? item : item.description.toLowerCase ().includes (dataOfArray)
@@ -49,6 +44,7 @@ function Table ({arayOfAllTransactions}) {
                     </tr>
                 </thead>
                 <tbody>
+                    
                     {oneTransaction}
                 </tbody>
             </table>
